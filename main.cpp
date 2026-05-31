@@ -24,7 +24,7 @@ string tentukanKategori(int kendaraan) {
 void tambahData() {
     int jumlahInput;
 
-    cout << "\n===== TAMBAH DATA =====\n";
+    cout << "\n==========\n";
     cout << "Berapa data yang ingin ditambahkan? ";
     cin >> jumlahInput;
     cin.ignore();
