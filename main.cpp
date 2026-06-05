@@ -24,7 +24,7 @@ string tentukanKategori(int kendaraan) {
 void tambahData() {
     int jumlahInput;
 
-    cout << "\n==========\n";
+    cout << "\n========= TAMBAH DATA =========\n";
     cout << "Berapa data yang ingin ditambahkan? ";
     cin >> jumlahInput;
     cin.ignore();
@@ -84,7 +84,7 @@ void tampilkanData() {
     }
 }
 
-void sortingKemacetan() {
+void sortingKemacetanasc() {
     for (int i = 0; i < jumlahData - 1; i++) {
         for (int j = 0; j < jumlahData - i - 1; j++) {
             if (totalkendaraan[j] < totalkendaraan[j + 1]) {
@@ -97,7 +97,22 @@ void sortingKemacetan() {
             }
         }
     }
-    cout << "\nData berhasil diurutkan dari paling macet.\n";
+    cout << "\nData berhasil diurutkan dari yang paling macet.\n";
+}
+void sortingKemacetandesc() {
+    for (int i = 0; i < jumlahData - 1; i++) {
+        for (int j = 0; j < jumlahData - i - 1; j++) {
+            if (totalkendaraan[j] > totalkendaraan[j + 1]) {
+                swap(totalkendaraan[j], totalkendaraan[j + 1]);
+                swap(namaJalan[j],      namaJalan[j + 1]);
+                swap(kategori[j],       kategori[j + 1]);
+                swap(truk[j],           truk[j + 1]);
+                swap(mobil[j],          mobil[j + 1]);
+                swap(motor[j],          motor[j + 1]);
+            }
+        }
+    }
+    cout << "\nData berhasil diurutkan dari yang paling lancar.\n";
 }
 
 int cariJalan(string target) {
@@ -176,25 +191,27 @@ int main() {
         cout << "============================================\n";
         cout << "1. Tambah Data Jalan\n";
         cout << "2. Tampilkan Data\n";
-        cout << "3. Sorting Kemacetan\n";
-        cout << "4. Cari Jalan\n";
-        cout << "5. Statistik\n";
-        cout << "6. Exit\n";
-        cout << "=====================================\n";
+        cout << "3. Sorting Kemacetan(dari yang paling macet)\n";
+        cout << "4. Sorting Kemacetan(dari yang paling tidak macet)\n";
+        cout << "5. Cari Jalan\n";
+        cout << "6. Statistik\n";
+        cout << "7. Exit\n";
+        cout << "============================================\n";
         cout << "Pilih menu: ";
         cin >> pilihan;
 
         switch (pilihan) {
             case 1: tambahData();      break;
             case 2: tampilkanData();   break;
-            case 3: sortingKemacetan(); break;
-            case 4: searchingData();   break;
-            case 5: statistik();       break;
-            case 6: cout << "\nProgram selesai.\n"; break;
+            case 3: sortingKemacetanasc(); break;
+            case 4: sortingKemacetandesc(); break;
+            case 5: searchingData();   break;
+            case 6: statistik();       break;
+            case 7: cout << "\nProgram selesai.\n"; break;
             default: cout << "\nMenu tidak valid.\n";
         }
 
-    } while (pilihan != 6);
+    } while (pilihan != 7);
 
     return 0;
 }
