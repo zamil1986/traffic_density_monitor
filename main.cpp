@@ -33,12 +33,33 @@ void tambahData() {
         cout << "\nData ke-" << i + 1 << endl;
         cout << "Nama Jalan   : ";
         getline(cin, namaJalan[jumlahData]);
-        cout << "Jumlah Truk  : ";
-        cin >> truk[jumlahData];
-        cout << "Jumlah Mobil : ";
-        cin >> mobil[jumlahData];
-        cout << "Jumlah Motor : ";
-        cin >> motor[jumlahData];
+        do {
+            cout << "Jumlah Truk  : ";
+            cin >> truk[jumlahData];
+
+            if (truk[jumlahData] < 0)
+                cout << "Jumlah truk tidak boleh negatif!\n";
+
+        } while (truk[jumlahData] < 0);
+
+        do {
+            cout << "Jumlah Mobil : ";
+            cin >> mobil[jumlahData];
+
+            if (mobil[jumlahData] < 0)
+                cout << "Jumlah mobil tidak boleh negatif!\n";
+
+        } while (mobil[jumlahData] < 0);
+
+        do {
+            cout << "Jumlah Motor : ";
+            cin >> motor[jumlahData];
+
+            if (motor[jumlahData] < 0)
+                cout << "Jumlah motor tidak boleh negatif!\n";
+
+        } while (motor[jumlahData] < 0);
+
         cin.ignore();
 
         totalkendaraan[jumlahData] = truk[jumlahData]
